@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Information</title>
+</head>
+<body style="background-color: lightgoldenrodyellow">
+    <h1>Computer Science Major in Ontario Universities</h1>
+    <form action="/university" method="POST">
+        <input type="text" name="university" style ="height: 50px; width: 300px;" placeholder="Enter university name">
+        <input type="submit" value="Search" style ="height: 55px; width: 75px;">
+    </form>
+    {% if error %}
+    <p>{{ error }}</p>
+    {% endif %}
+    <ul>
+        {% for university in universities %}
+        <li>
+            <h2>{{ university.name }}</h2>
+            <p>{{ university.location }}</p>
+            <img src="{{ university.image }}" style="width: 500px;" alt="{{ university.name }}">
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
